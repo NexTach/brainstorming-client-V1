@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { colors } from '../../shared/constants';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const InputWrapper = styled.div`
 const Label = styled.label`
   display: block;
   font-size: 0.875rem;
-  color: #4a5568;
+  color: ${colors.BLACK};
 `;
 
 const InputField = styled.input`
@@ -18,12 +19,12 @@ const InputField = styled.input`
   height: 3rem;
   padding: 0 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid ${colors.WHITE};
   outline: none;
   transition: all 0.2s;
 
   &:focus {
-    border-color: #3b82f6;
+    border-color: ${colors.MAIN_COLOR};
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
   }
 `;
