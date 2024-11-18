@@ -1,8 +1,8 @@
 import React from 'react';
 import UI from './UI';
 
-const Intro = () => {
+const index = () => {
   return <UI />;
 };
 
-export default Intro;
+export default index;
