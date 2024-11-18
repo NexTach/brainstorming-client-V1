@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Input } from '../../widgets/input/index';
-import { Button } from '../../widgets/button/index';
+import { Input } from '../../widgets/input/Index';
+import { Button } from '../../widgets/button/Index';
 import { useNavigate } from 'react-router-dom';
-import { signinUser } from './model';
-import { colors } from '../../shared/ui/colors';
+import { signinUser } from './Model';
+import { colors } from '../../shared/ui/Colors';
 
 const LoginWrapper = styled.div`
   min-height: 100vh;

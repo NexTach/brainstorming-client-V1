@@ -1,6 +1,6 @@
 import React from 'react';
 import UI from './UI';
-import Model from './model';
+import Model from './Model';
 
 const index = () => {
   return (
