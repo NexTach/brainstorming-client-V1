@@ -5,7 +5,7 @@ import HomeIcon from '../../shared/assets/icon/HomeIcon';
 import ProfileIcon from '../../shared/assets/icon/ProfileIcon';
 import { Colors } from '../../shared/ui/Colors';
 
-const Container = styled.nav`
+const NavigationWrapper = styled.nav`
   display: flex;
   position: fixed;
   bottom: 0;
@@ -15,9 +15,9 @@ const Container = styled.nav`
   justify-content: space-around;
 `;
 
-export const Navigation = () => {
+const Navigation = () => {
   return (
-    <Container>
+    <NavigationWrapper>
       <Link to="/reminder">
         <ReminderIcon />
       </Link>
@@ -27,6 +27,8 @@ export const Navigation = () => {
       <Link to="/profile">
         <ProfileIcon />
       </Link>
-    </Container>
+    </NavigationWrapper>
   );
 };
+
+export default Navigation;

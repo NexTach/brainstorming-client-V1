@@ -100,7 +100,6 @@ const UI = () => {
             backgroundColor: isButtonEnabled ? Colors.MAIN_COLOR : Colors.G_3,
             color: isButtonEnabled ? Colors.WHITE : Colors.G_2,
           }}
-          fullWidth
           onClick={
             isButtonEnabled
               ? () => handleLogin(phoneNumber, password, setError, navigate)
