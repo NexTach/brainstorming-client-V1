@@ -1,7 +1,12 @@
 import React from 'react';
+import Navigation from '../../widgets/navigation/Index';
 
 const index = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Navigation />
+    </div>
+  );
 };
 
 export default index;

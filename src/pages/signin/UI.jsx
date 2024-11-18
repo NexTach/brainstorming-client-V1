@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { Input } from '../../widgets/input/Index';
 import { Button } from '../../widgets/button/Index';
 import { useNavigate } from 'react-router-dom';
-import { signinUser } from './Model';
-import { colors } from '../../shared/ui/Colors';
+import { handleLogin } from './Model';
+import { Colors } from '../../shared/ui/Colors';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginWrapper = styled.div`
   min-height: 100vh;
-  background-color: ${colors.WHITE};
+  background-color: ${Colors.WHITE};
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -28,7 +30,7 @@ const LoginHeader = styled.div`
   }
 
   p {
-    color: ${colors.MAIN_COLOR};
+    color: ${Colors.MAIN_COLOR};
 
     span {
       font-weight: bold;
@@ -40,43 +42,29 @@ const LoginInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  cursor: text;
 `;
 
 const LoginFooter = styled.div`
   text-align: center;
   font-size: 0.875rem;
-  color: ${colors.G_2};
+  color: ${Colors.G_2};
 
   span {
-    color: ${colors.MAIN_COLOR};
+    color: ${Colors.MAIN_COLOR};
   }
-`;
-
-const ErrorMessage = styled.div`
-  color: red;
-  font-size: 0.875rem;
 `;
 
 const UI = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const success = await signinUser(phoneNumber, password);
-      if (success) {
-        navigate('/home');
-      } else {
-        setError('아이디 또는 비밀번호가 올바르지 않습니다.');
-      }
-    } catch (err) {
-      setError('서버와의 통신에 문제가 생겼습니다.');
-    }
-  };
-
   const isButtonEnabled = phoneNumber.length >= 8 && password.length >= 8;
+
+  const handleError = message => {
+    toast.error(message);
+  };
 
   return (
     <LoginWrapper>
@@ -104,17 +92,18 @@ const UI = () => {
           />
         </LoginInputs>
 
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-
         <Button
           variant="secondary"
           style={{
             cursor: isButtonEnabled ? 'pointer' : 'not-allowed',
-            backgroundColor: isButtonEnabled ? colors.MAIN_COLOR : colors.G_3,
-            color: isButtonEnabled ? colors.WHITE : colors.G_2,
+            backgroundColor: isButtonEnabled ? Colors.MAIN_COLOR : Colors.G_3,
+            color: isButtonEnabled ? Colors.WHITE : Colors.G_2,
           }}
-          fullWidth
-          onClick={isButtonEnabled ? handleLogin : null}
+          onClick={
+            isButtonEnabled
+              ? () => handleLogin(phoneNumber, password, handleError, navigate)
+              : null
+          }
         >
           로그인
         </Button>
@@ -123,12 +112,13 @@ const UI = () => {
           아직 함께 하고있지 않다면?{' '}
           <a
             onClick={() => navigate('/signup')}
-            style={{ cursor: 'pointer', color: colors.G_1 }}
+            style={{ cursor: 'pointer', color: Colors.G_1 }}
           >
             회원가입 하기
           </a>
         </LoginFooter>
       </LoginContent>
+      <ToastContainer />
     </LoginWrapper>
   );
 };
