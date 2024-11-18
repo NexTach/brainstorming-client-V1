@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { colors } from '../../shared/ui/Colors';
 
 const ButtonWrapper = styled.button`
   height: 3rem;
@@ -10,22 +11,21 @@ const ButtonWrapper = styled.button`
   ${props =>
     props.variant === 'primary' &&
     css`
-      background-color: #3b82f6;
-      color: white;
+      background-color: ${colors.MAIN_COLOR};
+      color: ${colors.WHITE};
 
       &:hover {
-        background-color: #2563eb;
+        background-color: ${colors.MAIN_COLOR};
       }
     `}
 
   ${props =>
     props.variant === 'secondary' &&
     css`
-      background-color: #f3f4f6;
-      color: #1f2937;
+      background-color: ${colors.G_3};
 
       &:hover {
-        background-color: #e5e7eb;
+        background-color: ${colors.G_3};
       }
     `}
 
@@ -36,6 +36,6 @@ const ButtonWrapper = styled.button`
     `}
 `;
 
-export function Button({ variant = 'primary', fullWidth, ...props }) {
+export const Button = ({ variant = 'primary', fullWidth, ...props }) => {
   return <ButtonWrapper variant={variant} fullWidth={fullWidth} {...props} />;
-}
+};
