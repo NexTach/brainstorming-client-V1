@@ -5,6 +5,8 @@ import { Button } from '../../widgets/button/Index';
 import { useNavigate } from 'react-router-dom';
 import { handleLogin } from './Model';
 import { Colors } from '../../shared/ui/Colors';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginWrapper = styled.div`
   min-height: 100vh;
@@ -52,18 +54,16 @@ const LoginFooter = styled.div`
   }
 `;
 
-const ErrorMessage = styled.div`
-  color: red;
-  font-size: 0.875rem;
-`;
-
 const UI = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const isButtonEnabled = phoneNumber.length >= 8 && password.length >= 8;
+
+  const handleError = message => {
+    toast.error(message);
+  };
 
   return (
     <LoginWrapper>
@@ -91,8 +91,6 @@ const UI = () => {
           />
         </LoginInputs>
 
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-
         <Button
           variant="secondary"
           style={{
@@ -102,7 +100,7 @@ const UI = () => {
           }}
           onClick={
             isButtonEnabled
-              ? () => handleLogin(phoneNumber, password, setError, navigate)
+              ? () => handleLogin(phoneNumber, password, handleError, navigate)
               : null
           }
         >
@@ -119,6 +117,7 @@ const UI = () => {
           </a>
         </LoginFooter>
       </LoginContent>
+      <ToastContainer />
     </LoginWrapper>
   );
 };
