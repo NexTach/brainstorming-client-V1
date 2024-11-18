@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Model = () => {
+const Redirect = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -11,4 +11,4 @@ const Model = () => {
   return null;
 };
 
-export default Model;
+export default Redirect;
