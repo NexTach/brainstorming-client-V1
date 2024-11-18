@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ReminderIcon from '../../shared/assets/icon/ReminderIcon';
 import HomeIcon from '../../shared/assets/icon/HomeIcon';
 import ProfileIcon from '../../shared/assets/icon/ProfileIcon';
-import { Colors } from '../../shared/ui/Colors';
+import { Colors } from '../../shared/UI/Colors';
 
 const NavigationWrapper = styled.nav`
   display: flex;

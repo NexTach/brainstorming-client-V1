@@ -1,5 +1,5 @@
 import React from 'react';
-import { Colors } from '../../ui/Colors.jsx';
+import { Colors } from '../../UI/Colors.jsx';
 
 const HomeIcon = () => {
   return (

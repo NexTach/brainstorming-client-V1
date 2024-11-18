@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from '../../widgets/navigation/Index';
 
-const index = () => {
+const Index = () => {
   return (
     <div>
       <Navigation />
@@ -9,4 +9,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

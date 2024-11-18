@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Colors } from '../../shared/ui/Colors';
+import { Colors } from '../../shared/UI/Colors';
 
 const ButtonWrapper = styled.button`
   height: 3rem;

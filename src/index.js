@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Router from './app/Router';
-import './shared/ui/GlobalStyle.css';
+import './shared/UI/GlobalStyle.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
