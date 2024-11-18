@@ -116,7 +116,10 @@ const UI = () => {
 
         <LoginFooter>
           아직 함께 하고있지 않다면?{' '}
-          <a onClick={() => navigate('/signup')} style={{ cursor: 'pointer' }}>
+          <a
+            onClick={() => navigate('/signup')}
+            style={{ cursor: 'pointer', color: colors.G_1 }}
+          >
             회원가입 하기
           </a>
         </LoginFooter>
