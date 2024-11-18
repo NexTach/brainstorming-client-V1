@@ -42,6 +42,7 @@ const LoginInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  cursor: text;
 `;
 
 const LoginFooter = styled.div`
