@@ -12,6 +12,7 @@ const LoginWrapper = styled.div`
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `;
 
 const LoginContent = styled.div`

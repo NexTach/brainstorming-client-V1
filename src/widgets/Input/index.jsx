@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../shared/constants';
+import { colors } from '../../shared/ui/Colors';
 
 const InputWrapper = styled.div`
   display: flex;
