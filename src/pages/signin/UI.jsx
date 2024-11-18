@@ -4,11 +4,11 @@ import { Input } from '../../widgets/input/Index';
 import { Button } from '../../widgets/button/Index';
 import { useNavigate } from 'react-router-dom';
 import { signinUser } from './Model';
-import { colors } from '../../shared/ui/Colors';
+import { Colors } from '../../shared/ui/Colors';
 
 const LoginWrapper = styled.div`
   min-height: 100vh;
-  background-color: ${colors.WHITE};
+  background-color: ${Colors.WHITE};
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const LoginHeader = styled.div`
   }
 
   p {
-    color: ${colors.MAIN_COLOR};
+    color: ${Colors.MAIN_COLOR};
 
     span {
       font-weight: bold;
@@ -45,10 +45,10 @@ const LoginInputs = styled.div`
 const LoginFooter = styled.div`
   text-align: center;
   font-size: 0.875rem;
-  color: ${colors.G_2};
+  color: ${Colors.G_2};
 
   span {
-    color: ${colors.MAIN_COLOR};
+    color: ${Colors.MAIN_COLOR};
   }
 `;
 
@@ -110,8 +110,8 @@ const UI = () => {
           variant="secondary"
           style={{
             cursor: isButtonEnabled ? 'pointer' : 'not-allowed',
-            backgroundColor: isButtonEnabled ? colors.MAIN_COLOR : colors.G_3,
-            color: isButtonEnabled ? colors.WHITE : colors.G_2,
+            backgroundColor: isButtonEnabled ? Colors.MAIN_COLOR : Colors.G_3,
+            color: isButtonEnabled ? Colors.WHITE : Colors.G_2,
           }}
           fullWidth
           onClick={isButtonEnabled ? handleLogin : null}
@@ -123,7 +123,7 @@ const UI = () => {
           아직 함께 하고있지 않다면?{' '}
           <a
             onClick={() => navigate('/signup')}
-            style={{ cursor: 'pointer', color: colors.G_1 }}
+            style={{ cursor: 'pointer', color: Colors.G_1 }}
           >
             회원가입 하기
           </a>

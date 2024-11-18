@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ReminderIcon from '../../shared/assets/icon/ReminderIcon';
+import HomeIcon from '../../shared/assets/icon/HomeIcon';
+import ProfileIcon from '../../shared/assets/icon/ProfileIcon';
 
 const Container = styled.nav`
   display: flex;
@@ -9,9 +12,15 @@ const Container = styled.nav`
 export const Navigation = () => {
   return (
     <Container>
-      <Link to="/reminder">Reminder</Link>
-      <Link to="/home">Home</Link>
-      <Link to="/profile">Profile</Link>
+      <Link to="/reminder">
+        <ReminderIcon />
+      </Link>
+      <Link to="/home">
+        <HomeIcon />
+      </Link>
+      <Link to="/profile">
+        <ProfileIcon />
+      </Link>
     </Container>
   );
 };
