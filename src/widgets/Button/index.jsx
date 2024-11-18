@@ -7,6 +7,7 @@ const ButtonWrapper = styled.button`
   border-radius: 0.5rem;
   font-weight: 500;
   transition: background-color 0.2s;
+  border: none;
 
   ${props =>
     props.variant === 'primary' &&
