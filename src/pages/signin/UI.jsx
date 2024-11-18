@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Input } from '../../widgets/Input/index';
-import { Button } from '../../widgets/Button/index';
+import { Input } from '../../widgets/input/index';
+import { Button } from '../../widgets/button/index';
 import { useNavigate } from 'react-router-dom';
 import { signinUser } from './model';
+import { colors } from '../../shared/ui/colors';
 
 const LoginWrapper = styled.div`
   min-height: 100vh;
-  background-color: white;
+  background-color: ${colors.WHITE};
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -26,7 +27,7 @@ const LoginHeader = styled.div`
   }
 
   p {
-    color: #3b82f6;
+    color: ${colors.MAIN_COLOR};
 
     span {
       font-weight: bold;
@@ -43,10 +44,10 @@ const LoginInputs = styled.div`
 const LoginFooter = styled.div`
   text-align: center;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: ${colors.G_2};
 
   span {
-    color: #3b82f6;
+    color: ${colors.MAIN_COLOR};
   }
 `;
 
@@ -64,11 +65,13 @@ const UI = () => {
   const handleLogin = async () => {
     const success = await signinUser(userId, password);
     if (success) {
-      navigate('/dashboard');
+      navigate('/home');
     } else {
       setError('아이디 또는 비밀번호가 올바르지 않습니다.');
     }
   };
+
+  const isButtonEnabled = userId.length >= 8 && password.length >= 8;
 
   return (
     <LoginWrapper>
@@ -100,15 +103,22 @@ const UI = () => {
 
         <Button
           variant="secondary"
-          style={{ cursor: 'pointer' }}
+          style={{
+            cursor: isButtonEnabled ? 'pointer' : 'not-allowed',
+            backgroundColor: isButtonEnabled ? colors.MAIN_COLOR : colors.G_3,
+            color: isButtonEnabled ? colors.WHITE : colors.G_2,
+          }}
           fullWidth
-          onClick={handleLogin}
+          onClick={isButtonEnabled ? handleLogin : null}
         >
           로그인
         </Button>
 
         <LoginFooter>
-          아직 함께 하고있지 않다면? <a>회원가입 하기</a>
+          아직 함께 하고있지 않다면?{' '}
+          <a onClick={() => navigate('/signup')} style={{ cursor: 'pointer' }}>
+            회원가입 하기
+          </a>
         </LoginFooter>
       </LoginContent>
     </LoginWrapper>
