@@ -25,7 +25,7 @@ const InputField = styled.input`
 
   &:focus {
     border-color: ${colors.MAIN_COLOR};
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 0 3px ${colors.MAIN_COLOR};
   }
 `;
 
