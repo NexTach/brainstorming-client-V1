@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Input } from '../../widgets/input/Index';
 import { Button } from '../../widgets/button/Index';
 import { useNavigate } from 'react-router-dom';
-import { signinUser } from './Model';
+import { handleLogin } from './Model';
 import { Colors } from '../../shared/ui/Colors';
 
 const LoginWrapper = styled.div`
@@ -63,19 +63,6 @@ const UI = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const success = await signinUser(phoneNumber, password);
-      if (success) {
-        navigate('/home');
-      } else {
-        setError('아이디 또는 비밀번호가 올바르지 않습니다.');
-      }
-    } catch (err) {
-      setError('서버와의 통신에 문제가 생겼습니다.');
-    }
-  };
-
   const isButtonEnabled = phoneNumber.length >= 8 && password.length >= 8;
 
   return (
@@ -114,7 +101,11 @@ const UI = () => {
             color: isButtonEnabled ? Colors.WHITE : Colors.G_2,
           }}
           fullWidth
-          onClick={isButtonEnabled ? handleLogin : null}
+          onClick={
+            isButtonEnabled
+              ? () => handleLogin(phoneNumber, password, setError, navigate)
+              : null
+          }
         >
           로그인
         </Button>

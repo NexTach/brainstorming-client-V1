@@ -1,16 +1,19 @@
-import axios from 'axios';
-import { API_ADDRESS } from '../../shared/api/Address';
+import { signinUser } from './API';
 
-export const signinUser = async (phoneNumber, password) => {
+export const handleLogin = async (
+  phoneNumber,
+  password,
+  setError,
+  navigate,
+) => {
   try {
-    const response = await axios.post(`${API_ADDRESS}/auth/signin`, {
-      phoneNumber,
-      password,
-    });
-    const { token } = response.data;
-    localStorage.setItem('token', token);
-    return true;
+    const success = await signinUser(phoneNumber, password);
+    if (success) {
+      navigate('/home');
+    } else {
+      setError('아이디 또는 비밀번호가 올바르지 않습니다.');
+    }
   } catch (err) {
-    return false;
+    setError('서버와의 통신에 문제가 생겼습니다.');
   }
 };
