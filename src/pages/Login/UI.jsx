@@ -2,6 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Input } from '../../widgets/Input/index';
 import { Button } from '../../widgets/Button/index';
+import { useNavigate } from 'react-router-dom';
+import { signinUser } from './model';
 
 const LoginWrapper = styled.div`
   min-height: 100vh;
@@ -48,9 +50,25 @@ const LoginFooter = styled.div`
   }
 `;
 
+const ErrorMessage = styled.div`
+  color: red;
+  font-size: 0.875rem;
+`;
+
 const UI = () => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    const success = await signinUser(userId, password);
+    if (success) {
+      navigate('/dashboard');
+    } else {
+      setError('아이디 또는 비밀번호가 올바르지 않습니다.');
+    }
+  };
 
   return (
     <LoginWrapper>
@@ -78,12 +96,19 @@ const UI = () => {
           />
         </LoginInputs>
 
-        <Button variant="secondary" fullWidth>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+
+        <Button
+          variant="secondary"
+          style={{ cursor: 'pointer' }}
+          fullWidth
+          onClick={handleLogin}
+        >
           로그인
         </Button>
 
         <LoginFooter>
-          아직 회원 아니신가요? <span>회원가입 하기</span>
+          아직 함께 하고있지 않다면? <a>회원가입 하기</a>
         </LoginFooter>
       </LoginContent>
     </LoginWrapper>

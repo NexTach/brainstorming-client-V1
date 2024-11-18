@@ -5,7 +5,7 @@ const Model = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate('/home');
+    navigate('/signin');
   }, [navigate]);
 
   return null;
