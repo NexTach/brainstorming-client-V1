@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { API_ADDRESS } from '../../shared/api/Address';
 
-export const signinUser = async (userId, password) => {
+export const signinUser = async (phoneNumber, password) => {
   try {
-    const response = await axios.post(`${API_ADDRESS}/api/signin`, {
-      userId,
+    const response = await axios.post(`${API_ADDRESS}/auth/signin`, {
+      phoneNumber,
       password,
     });
     const { token } = response.data;

@@ -57,13 +57,13 @@ const ErrorMessage = styled.div`
 `;
 
 const UI = () => {
-  const [userId, setUserId] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const success = await signinUser(userId, password);
+    const success = await signinUser(phoneNumber, password);
     if (success) {
       navigate('/home');
     } else {
@@ -71,7 +71,7 @@ const UI = () => {
     }
   };
 
-  const isButtonEnabled = userId.length >= 8 && password.length >= 8;
+  const isButtonEnabled = phoneNumber.length >= 8 && password.length >= 8;
 
   return (
     <LoginWrapper>
@@ -86,8 +86,8 @@ const UI = () => {
         <LoginInputs>
           <Input
             label="아이디"
-            value={userId}
-            onChange={e => setUserId(e.target.value)}
+            value={phoneNumber}
+            onChange={e => setPhoneNumber(e.target.value)}
             placeholder="아이디를 입력해주세요"
           />
           <Input
