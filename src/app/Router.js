@@ -14,9 +14,9 @@ const Router = () => {
         <Route path="/" element={<Intro />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/protege">
-          <Route path="home" element={<Home />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="reminder" element={<Reminder />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/reminder" element={<Reminder />} />
         </Route>
       </Routes>
     </BrowserRouter>

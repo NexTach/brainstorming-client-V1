@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Input } from '../../../widgets/Input/Index';
-import { Button } from '../../../widgets/Button/Index';
+import { Input } from '../../widgets/Input/Index';
+import { Button } from '../../widgets/Button/Index';
 import { useNavigate } from 'react-router-dom';
 import { handleLogin } from './Model';
-import { Colors } from '../../../shared/UI/Colors';
+import { Colors } from '../../shared/UI/Colors';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
