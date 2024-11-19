@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import MissionItem from './MissionItem';
 
 const Wrapper = styled.div`
   display: flex;
@@ -7,15 +8,6 @@ const Wrapper = styled.div`
   gap: 1rem;
   align-self: center;
 `;
-
-const MissionItem = ({ missionName }) => {
-  return (
-    <div>
-      <label htmlFor="todo1">{missionName}</label>
-      <input type="checkbox" id="todo1" />
-    </div>
-  );
-};
 
 const MissionList = () => {
   return (
