@@ -4,7 +4,7 @@ import Navigation from '../../../widgets/navigation/Index';
 const Index = () => {
   return (
     <div>
-      <Navigation selectedIcon={'home'} />
+      <Navigation permission="protege" selectedIcon={'home'} />
     </div>
   );
 };

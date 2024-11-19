@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Intro from '../pages/intro/Index.jsx';
 import Signin from '../pages/signin/Index.jsx';
 
-import Home from '../pages/protege/home/Index.js';
-import Profile from '../pages/protege/profile/Index.jsx';
-import Reminder from '../pages/protege/reminder/Index.jsx';
+import ProtegeHome from '../pages/protege/home/Index.jsx';
+import ProtegeProfile from '../pages/protege/profile/Index.jsx';
+import ProtegeReminder from '../pages/protege/reminder/Index.jsx';
 
 const Router = () => {
   return (
@@ -14,9 +14,9 @@ const Router = () => {
         <Route path="/" element={<Intro />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/protege">
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/reminder" element={<Reminder />} />
+          <Route path="home" element={<ProtegeHome />} />
+          <Route path="profile" element={<ProtegeProfile />} />
+          <Route path="reminder" element={<ProtegeReminder />} />
         </Route>
       </Routes>
     </BrowserRouter>
