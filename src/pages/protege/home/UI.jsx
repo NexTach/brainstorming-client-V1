@@ -11,10 +11,11 @@ const HomeContent = styled.div`
   gap: 1rem;
 `;
 
-const HomeHeader = styled.div`
+const HomeHeader = styled.p`
   font-size: 1.5rem;
   padding: 2rem;
   color: ${Colors.BLACK};
+  font-weight: 500;
   span {
     color: ${Colors.MAIN_COLOR};
   }
