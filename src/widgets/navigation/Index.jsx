@@ -15,17 +15,17 @@ const NavigationWrapper = styled.nav`
   justify-content: space-around;
 `;
 
-const Navigation = () => {
+const Navigation = ({ selectedIcon }) => {
   return (
     <NavigationWrapper>
       <Link to="/reminder">
-        <ReminderIcon />
+        <ReminderIcon isSelected={selectedIcon === 'reminder'} />
       </Link>
       <Link to="/home">
-        <HomeIcon />
+        <HomeIcon isSelected={selectedIcon === 'home'} />
       </Link>
       <Link to="/profile">
-        <ProfileIcon />
+        <ProfileIcon isSelected={selectedIcon === 'profile'} />
       </Link>
     </NavigationWrapper>
   );

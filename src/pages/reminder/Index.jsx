@@ -4,7 +4,7 @@ import Navigation from '../../widgets/navigation/Index';
 const Index = () => {
   return (
     <div>
-      <Navigation />
+      <Navigation selectedIcon={'reminder'} />
     </div>
   );
 };
