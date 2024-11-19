@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Colors } from '../../../shared/UI/Colors';
 import Mission from '../../../widgets/mission/Index';
+import HomeHeader from '../../../widgets/homeHeader/Index';
 
 const HomeWrapper = styled.div``;
 
@@ -11,34 +11,14 @@ const HomeContent = styled.div`
   gap: 1rem;
 `;
 
-const HomeHeader = styled.p`
-  font-size: 1.5rem;
-  padding: 2rem;
-  color: ${Colors.BLACK};
-  font-weight: 500;
-  span {
-    color: ${Colors.MAIN_COLOR};
-  }
-`;
-
 const UI = () => {
   const user = '임시';
-  const getDate = new Date();
 
   return (
     <HomeWrapper>
       <HomeContent>
-        <HomeHeader>
-          안녕하세요, {user}님! <br />
-          오늘은 {getDate.getFullYear()}년 {getDate.getMonth() + 1}월{' '}
-          {getDate.getDate()}일{' '}
-          <span>
-            {['일', '월', '화', '수', '목', '금', '토'][getDate.getDay()]}
-            요일
-          </span>
-          이에요!
-        </HomeHeader>
-        <Mission />
+        <HomeHeader user={user} />
+        <Mission innerText="오늘의 미션 리스트" />
       </HomeContent>
     </HomeWrapper>
   );
