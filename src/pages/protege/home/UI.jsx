@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../../shared/UI/Colors';
+import Mission from '../../../widgets/mission/Index';
 
 const HomeWrapper = styled.div``;
 
@@ -36,6 +37,7 @@ const UI = () => {
           </span>
           이에요!
         </HomeHeader>
+        <Mission />
       </HomeContent>
     </HomeWrapper>
   );
