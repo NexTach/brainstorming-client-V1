@@ -8,8 +8,23 @@ const Wrapper = styled.div`
   align-self: center;
 `;
 
+const MissionItem = ({ missionName }) => {
+  return (
+    <div>
+      <label htmlFor="todo1">{missionName}</label>
+      <input type="checkbox" id="todo1" />
+    </div>
+  );
+};
+
 const MissionList = () => {
-  return <Wrapper>MissionList</Wrapper>;
+  return (
+    <Wrapper>
+      <MissionItem missionName="오늘의 미션 1" />
+      <MissionItem missionName="오늘의 미션 2" />
+      <MissionItem missionName="오늘의 미션 3" />
+    </Wrapper>
+  );
 };
 
 export default MissionList;
