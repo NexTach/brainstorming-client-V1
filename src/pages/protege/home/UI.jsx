@@ -14,16 +14,18 @@ const HomeHeader = styled.div`
 `;
 
 const UI = () => {
-  const user = 'user';
+  const user = '임시';
+  const getDate = new Date();
+
   return (
     <HomeWrapper>
       <HomeContent>
         <HomeHeader>
           안녕하세요, {user}님! <br />
-          오늘은 {new Date().getFullYear()}년 {new Date().getMonth() + 1}월{' '}
-          {new Date().getDate()}일{' '}
+          오늘은 {getDate.getFullYear()}년 {getDate.getMonth() + 1}월{' '}
+          {getDate.getDate()}일{' '}
           <span>
-            {['일', '월', '화', '수', '목', '금', '토'][new Date().getDay()]}
+            {['일', '월', '화', '수', '목', '금', '토'][getDate.getDay()]}
             요일
           </span>
           이에요!
