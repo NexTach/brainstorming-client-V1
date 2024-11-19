@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import { Colors } from '../../../shared/UI/Colors';
 
 const HomeWrapper = styled.div``;
-const HomeContent = styled.div``;
+
+const HomeContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 const HomeHeader = styled.div`
   font-size: 1.5rem;
   padding: 2rem;
