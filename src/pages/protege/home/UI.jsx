@@ -13,12 +13,17 @@ const HomeContent = styled.div`
 
 const UI = () => {
   const user = '임시';
+  const missionList = [
+    { missionName: '오늘의 미션 1' },
+    { missionName: '오늘의 미션 2' },
+    { missionName: '오늘의 미션 3' },
+  ];
 
   return (
     <HomeWrapper>
       <HomeContent>
         <HomeHeader user={user} />
-        <Mission innerText="오늘의 미션 리스트" />
+        <Mission missionList={missionList} innerText="오늘의 미션 리스트" />
       </HomeContent>
     </HomeWrapper>
   );

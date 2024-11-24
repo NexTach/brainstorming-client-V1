@@ -9,12 +9,12 @@ const Wrapper = styled.div`
   align-self: center;
 `;
 
-const MissionList = () => {
+const MissionList = ({ missionList }) => {
   return (
     <Wrapper>
-      <MissionItem missionName="오늘의 미션 1" />
-      <MissionItem missionName="오늘의 미션 2" />
-      <MissionItem missionName="오늘의 미션 3" />
+      {missionList.map(mission => (
+        <MissionItem missionName={mission.missionName} />
+      ))}
     </Wrapper>
   );
 };

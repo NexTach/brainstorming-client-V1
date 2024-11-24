@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Intro from '../pages/intro/Index.jsx';
+import Signup from '../pages/signup/Index.jsx';
 import Signin from '../pages/signin/Index.jsx';
 
 import ProtegeHome from '../pages/protege/home/Index.jsx';
@@ -12,6 +13,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Intro />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/protege">
           <Route path="home" element={<ProtegeHome />} />
