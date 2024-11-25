@@ -5,11 +5,16 @@ export const handleLogin = async (
   password,
   setError,
   navigate,
+  permission,
 ) => {
   try {
     const success = await signinUser(phoneNumber, password);
     if (success) {
-      navigate('/home');
+      if (localStorage.getItem('permission') === 'protege') {
+        navigate('/protege/home');
+      } else if (localStorage.getItem('permission') === 'mentor') {
+        navigate('/mentor/home');
+      }
     } else {
       setError('전화번호 또는 비밀번호가 올바르지 않습니다.');
     }
