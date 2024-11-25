@@ -8,6 +8,7 @@ export const getMissionList = async () => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+      body: {},
     });
     return response.data.body;
   } catch (err) {
