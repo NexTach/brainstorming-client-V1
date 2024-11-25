@@ -4,7 +4,14 @@ import Navigation from '../../../widgets/navigation/Index';
 const Index = () => {
   return (
     <div>
-      <Navigation role="protege" selectedIcon={'profile'} />
+      <Navigation
+        role={
+          localStorage.getItem('role') === 'ROLE_PROTECTOR'
+            ? 'protector'
+            : 'protege'
+        }
+        selectedIcon={'profile'}
+      />
     </div>
   );
 };

@@ -6,7 +6,14 @@ const Index = () => {
   return (
     <div>
       <UI />
-      <Navigation role="protege" selectedIcon={'home'} />
+      <Navigation
+        role={
+          localStorage.getItem('role') === 'ROLE_PROTECTOR'
+            ? 'protector'
+            : 'protege'
+        }
+        selectedIcon={'home'}
+      />
     </div>
   );
 };
