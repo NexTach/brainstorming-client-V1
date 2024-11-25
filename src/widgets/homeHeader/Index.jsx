@@ -11,14 +11,14 @@ const Text = styled.p`
   }
 `;
 
-const HomeHeader = ({ user, permission }) => {
+const HomeHeader = ({ user, role }) => {
   const getDate = new Date();
 
   return (
     <Text>
       {' '}
       안녕하세요, {user}
-      {permission === 'protecter' ? '보호자' : ''}님! <br />
+      {role === 'protecter' ? '보호자' : ''}님! <br />
       오늘은 {getDate.getFullYear()}년 {getDate.getMonth() + 1}월{' '}
       {getDate.getDate()}일{' '}
       <span>

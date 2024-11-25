@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <div>
       <UI />
-      <Navigation permission="protege" selectedIcon={'home'} />
+      <Navigation role="protege" selectedIcon={'home'} />
     </div>
   );
 };

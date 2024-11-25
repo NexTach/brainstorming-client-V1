@@ -7,27 +7,15 @@ export const signinUser = async (phoneNumber, password) => {
       phoneNumber,
       password,
     });
-    const { accessToken, permission } = response.data;
-    setStorage(accessToken, permission);
+    const { accessToken, role } = response.data;
+    setStorage(accessToken, role);
     return true;
   } catch (err) {
     return err.response ? err.response.status : false;
   }
 };
 
-const setStorage = (accessToken, permission) => {
+const setStorage = (accessToken, role) => {
   localStorage.setItem('accessToken', accessToken);
-
-  if (permission === 'ROLE_DEVELOPER' || permission === 'ROLE_ADMIN') {
-    localStorage.setItem('permission', 'admin');
-  } else if (permission === 'ROLE_PROTECTOR') {
-    localStorage.setItem('permission', 'protector');
-  } else if (
-    permission === 'ROLE_WARD_0' ||
-    permission === 'ROLE_WARD_1' ||
-    permission === 'ROLE_WARD_2' ||
-    permission === 'ROLE_WARD_3'
-  ) {
-    localStorage.setItem('permission', 'protege');
-  }
+  localStorage.setItem('role', role);
 };

@@ -4,7 +4,7 @@ import Navigation from '../../../widgets/navigation/Index';
 const Index = () => {
   return (
     <div>
-      <Navigation permission="protege" selectedIcon={'reminder'} />
+      <Navigation role="protege" selectedIcon={'reminder'} />
     </div>
   );
 };
