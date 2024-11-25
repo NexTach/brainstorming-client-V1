@@ -11,6 +11,7 @@ const HomeWrapper = styled.div``;
 const HomeContent = styled.div`
   display: flex;
   flex-direction: column;
+
   gap: 1rem;
 `;
 
