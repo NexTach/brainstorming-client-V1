@@ -5,20 +5,29 @@ export const handleLogin = async (
   password,
   setError,
   navigate,
-  permission,
 ) => {
   try {
     const success = await signinUser(phoneNumber, password);
     if (success) {
-      if (localStorage.getItem('permission') === 'protege') {
+      setError({ message: '로그인에 성공했습니다.', isSuccess: true });
+      if (
+        localStorage.getItem('permission') === 'protege' ||
+        localStorage.getItem('permission') === 'admin'
+      ) {
         navigate('/protege/home');
-      } else if (localStorage.getItem('permission') === 'mentor') {
-        navigate('/mentor/home');
+      } else if (localStorage.getItem('permission') === 'protector') {
+        navigate('/protector/home');
       }
     } else {
-      setError('전화번호 또는 비밀번호가 올바르지 않습니다.');
+      setError({
+        message: '전화번호 또는 비밀번호가 올바르지 않습니다.',
+        isSuccess: false,
+      });
     }
   } catch (err) {
-    setError('서버와의 통신에 문제가 생겼습니다.');
+    setError({
+      message: '서버와의 통신에 문제가 생겼습니다.',
+      isSuccess: false,
+    });
   }
 };

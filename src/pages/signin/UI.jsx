@@ -62,8 +62,12 @@ const UI = () => {
 
   const isButtonEnabled = phoneNumber.length >= 8 && password.length >= 8;
 
-  const handleError = message => {
-    toast.error(message);
+  const handleAlert = ({ message, isSuccess }) => {
+    if (isSuccess) {
+      toast.success(message);
+    } else {
+      toast.error(message);
+    }
   };
 
   return (
@@ -101,7 +105,7 @@ const UI = () => {
           }}
           onClick={
             isButtonEnabled
-              ? () => handleLogin(phoneNumber, password, handleError, navigate)
+              ? () => handleLogin(phoneNumber, password, handleAlert, navigate)
               : null
           }
         >

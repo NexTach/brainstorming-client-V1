@@ -7,16 +7,17 @@ export const signinUser = async (phoneNumber, password) => {
       phoneNumber,
       password,
     });
-    const { token, permission } = response.data;
-    setStorage(token, permission);
+    const { accessToken, permission } = response.data;
+    setStorage(accessToken, permission);
     return true;
   } catch (err) {
     return false;
   }
 };
 
-const setStorage = (token, permission) => {
-  localStorage.setItem('token', token);
+const setStorage = (accessToken, permission) => {
+  localStorage.setItem('accessToken', accessToken);
+
   if (permission === 'ROLE_DEVELOPER' || permission === 'ROLE_ADMIN') {
     localStorage.setItem('permission', 'admin');
   } else if (permission === 'ROLE_PROTECTOR') {
