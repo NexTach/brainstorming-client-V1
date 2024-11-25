@@ -6,14 +6,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-self: center;
+  align-self: stretch;
 `;
 
 const MissionList = ({ missionList }) => {
   return (
     <Wrapper>
       {missionList.map(mission => (
-        <MissionItem missionName={mission.missionName} />
+        <MissionItem key={mission.id} mission={mission} />
       ))}
     </Wrapper>
   );
