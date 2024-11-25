@@ -4,7 +4,7 @@ import MissionWrapper from './MissionWrapper';
 import MissionList from './MissionList';
 import { getMissionList } from './API';
 
-const Mission = ({ innerText }) => {
+const Index = ({ innerText }) => {
   const [missionList, setMissionList] = useState([]);
 
   useEffect(() => {
@@ -23,4 +23,4 @@ const Mission = ({ innerText }) => {
   );
 };
 
-export default Mission;
+export default Index;

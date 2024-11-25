@@ -29,11 +29,13 @@ const InputField = styled.input`
   }
 `;
 
-export function Input({ className, label, ...props }) {
+const Index = ({ className, label, ...props }) => {
   return (
     <InputWrapper className={className}>
       {label && <Label>{label}</Label>}
       <InputField {...props} />
     </InputWrapper>
   );
-}
+};
+
+export default Index;

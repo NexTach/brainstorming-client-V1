@@ -11,7 +11,7 @@ const Text = styled.p`
   }
 `;
 
-const HomeHeader = ({ user, role }) => {
+const Index = ({ user, role }) => {
   const getDate = new Date();
 
   return (
@@ -30,4 +30,4 @@ const HomeHeader = ({ user, role }) => {
   );
 };
 
-export default HomeHeader;
+export default Index;

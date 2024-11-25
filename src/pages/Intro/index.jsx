@@ -2,7 +2,7 @@ import React from 'react';
 import UI from './UI';
 import Redirect from './Model';
 
-const index = () => {
+const Index = () => {
   return (
     <>
       <UI />
@@ -11,4 +11,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

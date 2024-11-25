@@ -1,7 +1,8 @@
 import React from 'react';
+import UI from './UI';
 
 const Index = () => {
-  return <div>AddMission</div>;
+  return <UI />;
 };
 
 export default Index;

@@ -37,6 +37,8 @@ const ButtonWrapper = styled.button`
     `}
 `;
 
-export const Button = ({ variant = 'primary', fullWidth, ...props }) => {
+const Index = ({ variant = 'primary', fullWidth, ...props }) => {
   return <ButtonWrapper variant={variant} fullWidth={fullWidth} {...props} />;
 };
+
+export default Index;
