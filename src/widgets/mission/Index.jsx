@@ -16,10 +16,12 @@ const Index = ({ innerText }) => {
   }, []);
 
   return (
-    <MissionWrapper>
+    <>
       <MissionHeader>{innerText}</MissionHeader>
-      <MissionList missionList={missionList} />
-    </MissionWrapper>
+      <MissionWrapper>
+        <MissionList missionList={missionList} />
+      </MissionWrapper>
+    </>
   );
 };
 

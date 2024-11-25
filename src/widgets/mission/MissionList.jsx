@@ -4,9 +4,12 @@ import MissionItem from './MissionItem';
 
 const Wrapper = styled.div`
   display: flex;
+  align-self: center;
   flex-direction: column;
   gap: 1rem;
-  align-self: stretch;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 85%;
 `;
 
 const MissionList = ({ missionList }) => {
