@@ -62,8 +62,12 @@ const UI = () => {
 
   const isButtonEnabled = phoneNumber.length >= 8 && password.length >= 8;
 
-  const handleError = message => {
-    toast.error(message);
+  const handleAlert = ({ message, isSuccess }) => {
+    if (isSuccess) {
+      toast.success(message);
+    } else {
+      toast.error(message);
+    }
   };
 
   return (
@@ -78,10 +82,10 @@ const UI = () => {
 
         <LoginInputs>
           <Input
-            label="아이디"
+            label="전화번호"
             value={phoneNumber}
             onChange={e => setPhoneNumber(e.target.value)}
-            placeholder="아이디를 입력해주세요"
+            placeholder="전화번호를 입력해주세요"
           />
           <Input
             label="비밀번호"
@@ -101,7 +105,7 @@ const UI = () => {
           }}
           onClick={
             isButtonEnabled
-              ? () => handleLogin(phoneNumber, password, handleError, navigate)
+              ? () => handleLogin(phoneNumber, password, handleAlert, navigate)
               : null
           }
         >
