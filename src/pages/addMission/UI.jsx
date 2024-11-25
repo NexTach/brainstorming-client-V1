@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../shared/UI/Colors';
 import Button from '../../widgets/Button/Index';
 import AddMissionTitle from '../../widgets/mission/AddMissionTitle';
+import AddMissionWeek from '../../widgets/mission/AddMissionWeek';
 
 export const AddMissionHeader = styled.div`
   h1 {
@@ -21,11 +23,24 @@ export const AddMissionWrapper = styled.div`
 `;
 
 const UI = () => {
+  const [step, setStep] = useState(1);
+  const [missionData, setMissionData] = useState({
+    title: '',
+    days: [],
+  });
+
+  const handleNext = data => {
+    setMissionData(prev => ({ ...prev, ...data }));
+    setStep(prev => prev + 1);
+  };
+
   return (
-    <AddMissionWrapper>
-      <AddMissionTitle />
-      <Button>다음</Button>
-    </AddMissionWrapper>
+    <>
+      {step === 1 && <AddMissionTitle onNext={handleNext} />}
+      {step === 2 && (
+        <AddMissionWeek onNext={handleNext} missionData={missionData} />
+      )}
+    </>
   );
 };
 
