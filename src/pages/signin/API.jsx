@@ -7,15 +7,26 @@ export const signinUser = async (phoneNumber, password) => {
       phoneNumber,
       password,
     });
+
     const { accessToken, role } = response.data;
+
+    if (!accessToken || !role) {
+      return 400;
+    }
+
     setStorage(accessToken, role);
     return true;
   } catch (err) {
-    return err.response ? err.response.status : false;
+    if (err.response) {
+      return err.response.status;
+    }
+    return 503;
   }
 };
 
 const setStorage = (accessToken, role) => {
-  localStorage.setItem('accessToken', accessToken);
-  localStorage.setItem('role', role);
+  if (accessToken && role) {
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('role', role);
+  }
 };

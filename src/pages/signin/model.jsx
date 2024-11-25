@@ -27,18 +27,20 @@ const handleLoginResult = (result, setError, navigate) => {
 };
 
 const navigateToHome = navigate => {
-  const permission = localStorage.getItem('permission');
-  if (permission === 'protege' || permission === 'admin') {
+  const role = localStorage.getItem('role');
+  if (role === 'protege' || role === 'admin') {
     navigate('/protege/home');
-  } else if (permission === 'protector') {
+  } else if (role === 'protector') {
     navigate('/protector/home');
   }
 };
 
 const handleLoginError = (result, setError) => {
   const errorMessages = {
+    400: '잘못된 응답 데이터입니다.',
     401: '비밀번호가 올바르지 않습니다.',
     404: '존재하지 않는 유저입니다.',
+    503: '서버와의 통신에 실패했습니다.',
   };
 
   const message = errorMessages[result] || `error code ${result}`;
