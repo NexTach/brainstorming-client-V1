@@ -11,6 +11,8 @@ const HomeContent = styled.div`
   gap: 1rem;
 `;
 
+const AddMissionButton = styled.button``;
+
 const UI = () => {
   const user = '임시';
 
@@ -19,6 +21,7 @@ const UI = () => {
       <HomeContent>
         <HomeHeader user={user} />
         <Mission innerText="오늘의 미션 리스트" />
+        <AddMissionButton />
       </HomeContent>
     </HomeWrapper>
   );

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Intro from '../pages/intro/Index.jsx';
 import Signup from '../pages/signup/Index.jsx';
 import Signin from '../pages/signin/Index.jsx';
-
+import AddMission from '../pages/addMission/Index.jsx';
 import ProtegeHome from '../pages/protege/home/Index.jsx';
 import ProtegeProfile from '../pages/protege/profile/Index.jsx';
 import ProtegeReminder from '../pages/protege/reminder/Index.jsx';
@@ -18,6 +18,7 @@ const Router = () => {
         <Route path="/protege">
           <Route path="home" element={<ProtegeHome />} />
           <Route path="profile" element={<ProtegeProfile />} />
+          <Route path="add-mission" element={<AddMission />} />
           <Route path="reminder" element={<ProtegeReminder />} />
         </Route>
       </Routes>
