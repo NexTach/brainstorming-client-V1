@@ -20,24 +20,21 @@ export const handleLogin = async (
 const handleLoginResult = (result, setError, navigate) => {
   if (result === true) {
     setError({ message: '로그인에 성공했습니다.', isSuccess: true });
-    navigateToHome(navigate);
+    const role = localStorage.getItem('role');
+    if (
+      role === 'ROLE_WARD_0' ||
+      role === 'ROLE_WARD_1' ||
+      role === 'ROLE_WARD_2' ||
+      role === 'ROLE_WARD_3' ||
+      role === 'ROLE_ADMIN' ||
+      role === 'ROLE_DEVELOPER'
+    ) {
+      navigate('/protege/home');
+    } else if (role === 'ROLE_PROTECTOR') {
+      navigate('/protector/home');
+    }
   } else {
     handleLoginError(result, setError);
-  }
-};
-
-const navigateToHome = navigate => {
-  const role = localStorage.getItem('role');
-  if (
-    role === 'ROLE_WARD_0' ||
-    role === 'ROLE_WARD_1' ||
-    role === 'ROLE_WARD_2' ||
-    role === 'ROLE_WARD_3' ||
-    role === 'ROLE_ADMIN'
-  ) {
-    navigate('/protege/home');
-  } else if (role === 'ROLE_PROTECTOR') {
-    navigate('/protector/home');
   }
 };
 
