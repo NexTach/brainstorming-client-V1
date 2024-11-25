@@ -7,8 +7,8 @@ export const handleLogin = async (
   navigate,
 ) => {
   try {
-    const success = await signinUser(phoneNumber, password);
-    if (success) {
+    const result = await signinUser(phoneNumber, password);
+    if (result === true) {
       setError({ message: '로그인에 성공했습니다.', isSuccess: true });
       if (
         localStorage.getItem('permission') === 'protege' ||
@@ -18,9 +18,19 @@ export const handleLogin = async (
       } else if (localStorage.getItem('permission') === 'protector') {
         navigate('/protector/home');
       }
+    } else if (result === 401) {
+      setError({
+        message: '비밀번호가 올바르지 않습니다.',
+        isSuccess: false,
+      });
+    } else if (result === 404) {
+      setError({
+        message: '존재하지 않는 유저입니다.',
+        isSuccess: false,
+      });
     } else {
       setError({
-        message: '전화번호 또는 비밀번호가 올바르지 않습니다.',
+        message: `error code ${result}`,
         isSuccess: false,
       });
     }

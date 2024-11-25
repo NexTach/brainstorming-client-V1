@@ -11,7 +11,7 @@ export const signinUser = async (phoneNumber, password) => {
     setStorage(accessToken, permission);
     return true;
   } catch (err) {
-    return false;
+    return err.response ? err.response.status : false;
   }
 };
 
