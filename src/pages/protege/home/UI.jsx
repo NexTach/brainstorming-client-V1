@@ -4,6 +4,7 @@ import Mission from '../../../widgets/mission/Index';
 import HomeHeader from '../../../widgets/homeHeader/Index';
 import { Colors } from '../../../shared/UI/Colors';
 import PlusIcon from '../../../assets/PlusIcon';
+import { useNavigate } from 'react-router-dom';
 
 const HomeWrapper = styled.div``;
 
@@ -35,13 +36,14 @@ const AddMissionButton = styled.div`
 
 const UI = () => {
   const user = '임시';
+  const navigate = useNavigate();
 
   return (
     <HomeWrapper>
       <HomeContent>
         <HomeHeader user={user} />
         <Mission innerText="오늘의 미션 리스트" />
-        <AddMissionButton>
+        <AddMissionButton onClick={() => navigate('/protege/add-mission')}>
           <PlusIcon />
         </AddMissionButton>
       </HomeContent>
