@@ -3,12 +3,10 @@ import { API_ADDRESS } from '../../shared/api/Address';
 
 export const getMissionList = async () => {
   try {
-    const token = localStorage.getItem('accessToken');
-    const response = await axios.get(`${API_ADDRESS}/mission/list`, {
+    const response = await axios.get(`${API_ADDRESS}/missions/list`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
-      body: {},
     });
     return response.data.body;
   } catch (err) {
@@ -20,12 +18,12 @@ export const getMissionList = async () => {
 export const createMission = async missionData => {
   try {
     const response = await axios.post(
-      `${API_ADDRESS}/mission/create`,
+      `${API_ADDRESS}/missions/custom`,
       {
-        toWard: localStorage.getItem('role'),
-        title: missionData.title,
-        content: missionData.content || '',
-        expirationDate: missionData.expirationDate,
+        toWard: localStorage.getItem('role') || 'ROLE_PROTEGE',
+        title: missionData.title || 'Untitled',
+        content: missionData.content || 'default',
+        expirationDate: missionData.expirationDate || null,
       },
       {
         headers: {

@@ -37,6 +37,7 @@ const UI = () => {
     days: [],
     useNotification: false,
     notificationTime: null,
+    expirationDate: null,
   });
 
   const handleNext = async data => {
@@ -44,9 +45,12 @@ const UI = () => {
     setMissionData(updatedData);
 
     if (step === 3) {
-      // Final step - create mission
-      const expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + 7); // Set expiration to 7 days from now
+      const currentDate = new Date();
+      const expirationDate = new Date(
+        updatedData.expirationDate || currentDate,
+      );
+
+      expirationDate.setDate(expirationDate.getDate() + 7);
 
       const result = await createMission({
         title: updatedData.title,
@@ -55,7 +59,7 @@ const UI = () => {
             ? `, Notification: ${updatedData.notificationTime}`
             : ''
         }`,
-        expirationDate: expirationDate.toISOString(),
+        expirationDate: expirationDate.toISOString().substring(0, 19),
       });
 
       if (result) {

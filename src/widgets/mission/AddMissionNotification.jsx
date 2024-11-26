@@ -19,7 +19,7 @@ const Option = styled(Button)`
 `;
 
 const TimePickerWrapper = styled.div`
-  display: ${props => (props.show ? 'block' : 'none')};
+  display: ${props => (props.$show ? 'block' : 'none')};
 `;
 
 const AddMissionNotification = ({ onNext }) => {
@@ -54,7 +54,7 @@ const AddMissionNotification = ({ onNext }) => {
         </Option>
       </NotificationOptions>
 
-      <TimePickerWrapper show={useNotification}>
+      <TimePickerWrapper $show={useNotification}>
         <Input
           type="time"
           label="알림 시간"
