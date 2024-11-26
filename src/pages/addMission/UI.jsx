@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../shared/UI/Colors';
-import Button from '../../widgets/Button/Index';
 import AddMissionTitle from '../../widgets/mission/AddMissionTitle';
 import AddMissionWeek from '../../widgets/mission/AddMissionWeek';
+import AddMissionNotification from '../../widgets/mission/AddMissionNotification';
 
 export const AddMissionHeader = styled.div`
   h1 {
     font-size: 1.25rem;
     font-weight: 500;
+  }
+  p {
+    font-size: 0.875rem;
+    color: ${Colors.G_2};
+    margin-top: 0.5rem;
   }
 `;
 
@@ -27,6 +32,8 @@ const UI = () => {
   const [missionData, setMissionData] = useState({
     title: '',
     days: [],
+    useNotification: false,
+    notificationTime: null,
   });
 
   const handleNext = data => {
@@ -37,9 +44,8 @@ const UI = () => {
   return (
     <>
       {step === 1 && <AddMissionTitle onNext={handleNext} />}
-      {step === 2 && (
-        <AddMissionWeek onNext={handleNext} missionData={missionData} />
-      )}
+      {step === 2 && <AddMissionWeek onNext={handleNext} />}
+      {step === 3 && <AddMissionNotification onNext={handleNext} />}
     </>
   );
 };
