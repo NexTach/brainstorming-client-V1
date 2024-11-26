@@ -19,18 +19,20 @@ export const getMissionList = async () => {
 
 export const createMission = async missionData => {
   try {
-    const token = localStorage.getItem('accessToken');
-    const response = await axios.post(`${API_ADDRESS}/mission/create`, {
-      header: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: {
+    const response = await axios.post(
+      `${API_ADDRESS}/mission/create`,
+      {
         toWard: localStorage.getItem('role'),
         title: missionData.title,
         content: missionData.content || '',
         expirationDate: missionData.expirationDate,
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      },
+    );
     return response.data;
   } catch (err) {
     console.error(err);
