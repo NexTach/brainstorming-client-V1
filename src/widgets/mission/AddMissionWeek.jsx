@@ -18,7 +18,7 @@ const StyledButton = styled(Button)`
   color: ${props => (props.selected ? Colors.WHITE : Colors.G_2)};
 `;
 
-const AddMissionWeek = () => {
+const AddMissionWeek = ({ onNext }) => {
   const [selectedDays, setSelectedDays] = useState([]);
 
   const toggleDay = day => {
@@ -27,6 +27,12 @@ const AddMissionWeek = () => {
         ? prevState.filter(d => d !== day)
         : [...prevState, day],
     );
+  };
+
+  const handleNext = () => {
+    if (selectedDays.length > 0) {
+      onNext({ days: selectedDays });
+    }
   };
 
   const daysOfWeek = [
@@ -53,6 +59,17 @@ const AddMissionWeek = () => {
           ))}
         </ButtonRow>
       ))}
+      <Button
+        onClick={handleNext}
+        style={{
+          backgroundColor:
+            selectedDays.length > 0 ? Colors.MAIN_COLOR : Colors.G_3,
+          color: selectedDays.length > 0 ? Colors.WHITE : Colors.G_2,
+          cursor: selectedDays.length > 0 ? 'pointer' : 'not-allowed',
+        }}
+      >
+        다음
+      </Button>
     </AddMissionWrapper>
   );
 };

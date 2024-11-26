@@ -37,7 +37,6 @@ const AddMissionNotification = ({ onNext }) => {
     <AddMissionWrapper>
       <AddMissionHeader>
         <h1>알림을 설정하시겠습니까?</h1>
-        <p>미션 수행 시간에 알림을 받을 수 있습니다</p>
       </AddMissionHeader>
 
       <NotificationOptions>
