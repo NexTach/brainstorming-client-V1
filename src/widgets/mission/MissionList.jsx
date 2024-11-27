@@ -12,12 +12,17 @@ const Wrapper = styled.div`
   width: 85%;
 `;
 
-const MissionList = ({ missionList }) => {
+// server
+const MissionList = ({ missionList = [] }) => {
   return (
     <Wrapper>
-      {missionList.map(mission => (
-        <MissionItem key={mission.id} mission={mission} />
-      ))}
+      {missionList.length > 0 ? (
+        missionList.map(mission => (
+          <MissionItem key={mission.id - 1} mission={mission.title} />
+        ))
+      ) : (
+        <p>No missions available.</p>
+      )}
     </Wrapper>
   );
 };

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export const AddMissionHeader = styled.div`
   h1 {
     font-size: 1.25rem;
+
     font-weight: 500;
   }
   p {

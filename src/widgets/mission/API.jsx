@@ -8,9 +8,10 @@ export const getMissionList = async () => {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     });
+    console.log('API Response:', response.data);
     return response.data.body;
   } catch (err) {
-    console.error(err);
+    console.error('API Error:', err);
     return [];
   }
 };
