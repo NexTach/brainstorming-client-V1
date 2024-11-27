@@ -46,11 +46,11 @@ const UI = () => {
 
     if (step === 3) {
       const currentDate = new Date();
-      const expirationDate = new Date(
-        updatedData.expirationDate || currentDate,
-      );
-
-      expirationDate.setDate(expirationDate.getDate() + 7);
+      currentDate.setDate(currentDate.getDate() + 7);
+      const expirationDate = new Date(updatedData.expirationDate || currentDate)
+        .toISOString()
+        .substring(0, 19);
+      console.log(expirationDate); // yyyy-mm-ddThh:mm:ss
 
       const result = await createMission({
         title: updatedData.title,
@@ -59,7 +59,7 @@ const UI = () => {
             ? `, Notification: ${updatedData.notificationTime}`
             : ''
         }`,
-        expirationDate: expirationDate.toISOString().substring(0, 19),
+        expirationDate: expirationDate,
       });
 
       if (result) {

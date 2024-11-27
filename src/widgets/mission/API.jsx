@@ -20,7 +20,7 @@ export const createMission = async missionData => {
     const response = await axios.post(
       `${API_ADDRESS}/missions/custom`,
       {
-        toWard: localStorage.getItem('role') || 'ROLE_PROTEGE',
+        toWard: '+821025298406',
         title: missionData.title || 'Untitled',
         content: missionData.content || 'default',
         expirationDate: missionData.expirationDate || null,
